@@ -1,2 +1,371 @@
-<h1>李恒</h1>
-<h2>中南大学</h2>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.css">
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Raleway&amp;display=swap");
+         :root {
+            /* 主蓝色，按钮，社交图标 */
+            --primary-color: #71b3dd;
+            /* 主蓝色，深，导航 */
+            --primary-dark-color: #4489b5;
+            --text-color-gray: #8b979f;
+            --text-color-light-gray: #c1c7cb;
+            --text-color-dark-gray: #5a6f7c;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            font-size: 14px;
+            box-sizing: border-box;
+            font-family: "Raleway", "PingFang SC", "Microsoft Yahei", sans-serif;
+        }
+        
+        .wrapper {
+            /* 栅格布局，居中卡片 */
+            display: grid;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        
+        .profile-card {
+            display: grid;
+            /* 12格栅格 */
+            grid-template-columns: repeat(12, 1fr);
+            /* 每个列之间的空隙是12px */
+            column-gap: 12px;
+            /* 卡片总宽度为627px */
+            width: 627px;
+            /* 卡片总高度为374px */
+            height: 374px;
+            box-shadow: 0px 0px 22px 3px rgba(0, 0, 0, 0.18);
+        }
+        
+        .profile-image {
+            /* 图片占5列 */
+            grid-column: 8 / 13;
+            max-width: 238px;
+            height: 100%;
+            /* 隐藏图片超出区域 */
+            overflow: hidden;
+            /* 垂直为靠上对齐 */
+            align-self: start;
+            /* 水平为靠右对齐 */
+            justify-self: end;
+        }
+        
+        .profile-image img {
+            /* 图片放大，然后只显示一部分 */
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .content {
+            /* 左边内容占7列 */
+            grid-column: 1 / 8;
+            padding: 38px 28px 20px 33px;
+            position: relative;
+        }
+        
+        nav {
+            margin-bottom: 24px;
+            display: flex;
+            position: relative;
+        }
+        
+        nav a {
+            color: var(--text-color-gray);
+            text-decoration: none;
+        }
+        
+        nav a.active {
+            color: var(--primary-dark-color);
+        }
+        
+        nav a:not(:last-child) {
+            margin-right: 40px;
+        }
+        
+        nav .indicator {
+            height: 2px;
+            background: var(--primary-dark-color);
+            bottom: -7px;
+            left: 0;
+            position: absolute;
+            transition: 0.4s;
+        }
+        
+        .content section {
+            /* 堆叠个人简介和工作经历部分 */
+            position: absolute;
+            /* 默认都不显示  */
+            opacity: 0;
+            /* 淡出淡入效果 */
+            transition: 0.3s ease-out;
+        }
+        
+        .content section.active-section {
+            /* 显示active-section */
+            opacity: 1;
+        }
+        /* 名字、身份与关注按钮左右布局，各占一列，子栅格不受父栅格影响，是个全新的栅格布局 */
+        
+        .personal-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        /* 名字 */
+        
+        .title h1 {
+            font-size: 2em;
+            font-weight: 500;
+        }
+        /* 身份 */
+        
+        .title p {
+            color: var(--text-color-gray);
+            font-size: 1em;
+            margin: 6px 0 18px 0;
+        }
+        /* 关注按钮 */
+        
+        .follow-btn {
+            justify-self: end;
+            height: 30px;
+            background: var(--primary-color);
+            border: none;
+            color: white;
+            padding: 0 27px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 30px;
+        }
+        /* 关注按钮的加号 */
+        
+        .follow-btn .fas {
+            font-size: 10px;
+            margin-right: 6px;
+        }
+        /* 关于我部分 */
+        
+        .about-me {
+            color: var(--text-color-dark-gray);
+            font-weight: 300;
+            text-align: justify;
+        }
+        /* 社交按钮部分 */
+        
+        footer {
+            margin-top: 70px;
+        }
+        
+        footer ul {
+            display: flex;
+        }
+        
+        footer ul li {
+            list-style: none;
+        }
+        
+        footer ul li:not(:last-child) {
+            margin-right: 30px;
+        }
+        
+        footer .fab {
+            color: var(--primary-color);
+            font-size: 24px;
+        }
+        /* ********************************* */
+        /* 工作经历，一共3条工作经历，所以创建了3行栅格布局 */
+        
+        .work-exps {
+            color: var(--text-color-gray);
+            display: grid;
+            grid-template-rows: repeat(3, minmax(80px, auto));
+        }
+        /* 每个工作经历为三列栅格布局，分别为职位，分隔线、公司名和工作时间部分 */
+        
+        .work-exp-item {
+            display: grid;
+            /* 列之间的比例 */
+            grid-template-columns: 5fr 1fr 7fr;
+            align-items: center;
+            justify-content: center;
+        }
+        /* 职位 */
+        
+        .position {
+            font-size: 18px;
+            font-weight: 500;
+        }
+        /* 分隔线 */
+        
+        .seperator {
+            height: 43px;
+            /* width: 1px; */
+            border-left: 2px dotted #eaeff2;
+        }
+        /* 工作时间 */
+        
+        .time {
+            color: var(--text-color-light-gray);
+        }
+        /* 公司 */
+        
+        .company {
+            font-size: 14px;
+            color: var(--text-color-dark-gray);
+            margin-top: 9px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 个人卡片容器，居中卡片 -->
+    <div class="wrapper">
+        <!-- 个人卡片 -->
+        <div class="profile-card">
+            <!-- 卡片内容，导航，个人简介和工作经历 -->
+            <div class="content">
+                <!-- 导航 -->
+                <nav id="nav-menu">
+                    <!-- data-rel，在js里获取当前要展示哪个section，是个人简介还是工作经历 -->
+                    <a class="active" href=" " data-rel="about-me-section">个人简介</a >
+                    工作经历
+                    <!-- 当前选中菜单的指示条 -->
+                    <div class="indicator"></div>
+                </nav>
+                <!-- 关于我部分 -->
+                <section class="about-me-section active-section">
+                    <!-- 名字和身份信息 -->
+                    <div class="personal-info">
+                        <div class="title">
+                            <h1>李恒</h1>
+                            <p>中南大学学生</p >
+                        </div>
+                        <!-- 关注按钮 -->
+                        <button class="follow-btn">
+                <i class="fas fa-plus"></i>关注
+              </button>
+                    </div>
+                    <!-- 个人简介的内容 -->
+                    <div class="about-me">
+                        <p>
+                            我是李恒，毕业于中南大学，计算机爱好者。擅长使用 React, Styled-components 开发可复用的视图组件。
+                        </p >
+                    </div>
+                    <!-- 社交图标 -->
+                    <footer>
+                        <ul>
+                            <li>
+                                <i class="fab fa-weixin"></i>
+                            </li>
+                            <li>
+                                <i class="fab fa-weibo"></i>
+                            </li>
+                            <li>
+                                <i class="fab fa-github"></i>
+                            </li>
+                            <li>
+                                <i class="fab fa-linkedin"></i>
+                            </li>
+                        </ul>
+                    </footer>
+                </section>
+                <!-- 工作经历部分 -->
+                <section class="work-exp-section">
+                    <!-- 工作经历容器 -->
+                    <div class="work-exps">
+                        <!-- 每条工作经历 -->
+                        <div class="work-exp-item">
+                            <!-- 职位 -->
+                            <div class="position">工程师</div>
+                            <!-- 分隔线 -->
+                            <div class="seperator"></div>
+                            <!-- 公司信息 -->
+                            <div class="work-info">
+                                <!-- 工作时间 -->
+                                <div class="time">
+                                    2018.07 ~ 2019.08 <i class="far fa-calendar"></i>
+                                </div>
+                                <!-- 公司名称 -->
+                                <div class="company">北京某某互联网金融公司</div>
+                            </div>
+                        </div>
+                        <div class="work-exp-item">
+                            <div class="position">软件工程师</div>
+                            <div class="seperator"></div>
+                            <div class="work-info">
+                                <div class="time">
+                                    2013.07 ~ 2016.07 <i class="far fa-calendar"></i>
+                                </div>
+                                <div class="company">北京某美国信息技术公司</div>
+                            </div>
+                        </div>
+                        <div class="work-exp-item">
+                            <div class="position">软件工程师</div>
+                            <div class="seperator"></div>
+                            <div class="work-info">
+                                <div class="time">
+                                    2010.07 ~ 2010.12 <i class="far fa-calendar"></i>
+                                </div>
+                                <div class="company">北京某大软件有限公司</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!-- 头像 -->
+            <aside class="profile-image"><img src="恒2.jpg" alt="我"/></aside>
+        </div>
+    </div>
+    <script>
+        // 获取导航菜单项
+        const navMenuItems = document.querySelectorAll("#nav-menu a");
+        // 获取指示条实例，用来做动画
+        const indicator = document.querySelector(".indicator");
+
+        // 点击菜单项时的事件处理函数
+        function handleMenuItemClick(target) {
+            // 取消所有active状态和style样式，为了重新触发动画
+            navMenuItems.forEach(item => {
+                item.classList.remove("active");
+                item.style = "";
+            });
+            target.classList.add("active");
+            // 设置指示条为菜单项的宽度
+            indicator.style.width = `${target.offsetWidth}px`;
+            // 设置指示条位置为菜单项的起始位置
+            indicator.style.left = `${target.offsetLeft}px`;
+
+            // 改变section，旧的active的section移除active状态，并且淡出
+            const currentSection = document.querySelector(".active-section");
+            currentSection.classList.remove("active-section");
+
+            // 获取点击的菜单项对应的分区实例，如个人简介或工作经历
+            const newCurrentSection = document.querySelector(
+                `.${target.getAttribute("data-rel")}`
+            );
+            newCurrentSection.classList.add("active-section");
+        }
+
+        navMenuItems.forEach(item => {
+            // 每个菜单项点击时调用事件处理函数
+            item.addEventListener("click", e => handleMenuItemClick(e.target));
+
+            // 首次页面展示时，工作简介菜单是active的，先触发一次点击处理
+            item.classList.contains("active") &amp;&amp; handleMenuItemClick(item);
+        });
+    </script>
+</body>
+
+</html>
