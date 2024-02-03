@@ -1,0 +1,826 @@
+@charset "utf-8";
+
+/* 通用 */
+	body {
+		padding: 0;
+		margin: 0;
+		background: url(images/header_bg.png) repeat-x;
+		font-size: 12px;
+		color: #333;
+	}
+	a {
+		color: #666;
+		text-decoration: none;
+	}
+	ul {
+		list-style: none outside none;
+	}
+	ul,h2,dl,dd,p,form {
+		margin: 0;
+		padding: 0;
+	}
+
+/* #screen 屏幕遮罩 */
+	#screen {
+		position: fixed;
+		top:0;
+		left:0;
+		width:100%;
+		height: 100%;
+		background-color: rgb(145,145,145);
+		opacity: 0;
+		z-index:9998;
+		display: none;
+	}
+
+/* #header 标头 */
+	#header {
+		width: 900px;
+		height: 30px;
+		margin: 0 auto;
+		position: relative;
+	}
+
+	#header .logo {
+		width: 100px;
+		height: 30px;
+		float: left;
+	}
+
+	#header .logo img {
+		display: block;
+	}
+
+	#header .member {
+		width: 100px;
+		height: 30px;
+		line-height: 30px;
+		float: right;
+		background: url(images/arrow.png) no-repeat 70% center;
+		cursor: pointer;
+		text-indent: 10px;
+	}
+
+	#header .member:hover {
+		background: url(images/arrow2.png) no-repeat 70% center;
+		font-weight: bold;
+	}
+
+	#header .member ul{
+		width: 100px;
+		height: 0px;
+		padding: 0;
+		margin: 0 0 0 0;
+		background-color: #f0f0f0;
+		display:none;
+		opacity:0;
+		overflow: hidden;
+	}
+
+	#header .member li{
+		list-style-type: none;
+		text-indent : 28px;
+		background: url(images/arrow4.gif) no-repeat 10% 49%;
+		font-weight: normal;
+	}
+
+	#header .member li:hover {
+		background: #DBDBDB url(images/arrow3.gif) no-repeat 10% 49%;
+		font-weight: bold;
+	}
+
+	#header .login, #header .reg{
+		margin: 0 10px 0 0;
+		width: 35px;
+		height: 30px;
+		text-align: center;
+		line-height: 30px;
+		float: right;
+		cursor: pointer;
+	}
+
+	#header .login:hover, #header .reg:hover {
+		font-weight: bold;
+	}
+
+/* #reg 注册框*/
+	#reg {
+		width: 600px;
+		height: 550px;
+		color: #666;
+		border: 1px solid #ccc;
+		position: absolute;
+		display: none;
+		z-index: 9999;
+		background-color: #fff;
+	}
+	#reg h2{
+		height: 40px;
+		text-align: center;
+		font-size: 14px;
+		text-indent: 20px;
+		line-height: 40px;
+		letter-spacing: 3px;
+		background: url(images/login_header.png);
+		border-bottom: 1px solid #ccc;
+		cursor: move;
+	}
+	#reg h2 .close {
+		float: right;
+		position: relative;
+		top: 12px;
+		left: -12px;
+		cursor: pointer;
+	}
+	#reg dl {
+		margin: 20px;
+		padding: 0 0 0 10px;
+		font-size: 14px;
+		position: relative;
+	}
+	#reg dl dd{
+		height: 30px;
+		padding: 5px 0;
+	}
+	#reg dl dd input.text, #reg dl dd select{
+		width: 200px;
+		height: 25px;
+		border: 1px solid #ccc;
+		background: #fff;
+		font-size: 14px;
+	}
+	#reg dl dd select {
+		width: 202px;
+		height: 29px;
+	}
+	#reg dl dd.birthday select{
+		width: 70px;
+	}
+	#reg dl dd textarea {
+		width: 360px;
+		height: 100px;
+		background: #fff;
+		border: 1px solid #ccc;
+	}
+	#reg dl dd input.submit {
+		width: 143px;
+		height: 33px;
+		background: url(images/reg_1.png) no-repeat;
+		border:none;
+		cursor:pointer;
+		outline: none;
+		position: absolute;
+		top:425px;
+		left:198px;
+	}
+	#reg dl dd input.submit:hover {
+		background: url(images/reg.png) no-repeat;
+	}
+	/*通用 提示/错误/通过*/
+		#reg dl dd span.info, #reg dl dd span.error, #reg dl dd span.succ {
+			display: block;
+			color: #333;
+			font-size: 12px;
+			color: #333;
+			width: 165px;
+			height: 27px;
+			line-height: 20px;
+			padding: 5px 0 0 35px;
+			position: absolute;
+			display: none;
+		}
+	/*用户名 提示/错误/通过*/
+		#reg dl dd span.info_user {
+			height: 50px;
+			background: url(images/reg_info2.png) no-repeat;
+			top: 3px;
+			left: 295px;
+		}
+		#reg dl dd span.error_user {
+			background:url(images/reg_error.png) no-repeat;
+			top: 3px;
+			left: 295px;
+		}
+		#reg dl dd span.succ_user {
+			background:url(images/reg_succ.png) no-repeat 14px 8px ;
+			top: 3px;
+			left: 295px;
+			color: green;
+		}
+	/*密码 提示/错误/通过*/
+		#reg dl dd span.info_pass {
+			width: 260px;
+			height: 106px;
+			background: url(images/reg_info3.png) no-repeat;
+			top: 3px;
+			left: 295px;
+			padding: 3px 0 0 15px;
+			/*display: block;*/
+		}
+		#reg dl dd span.info_pass p {
+			height: 25px;
+			line-height: 25px;
+			color: #666;
+		}
+		#reg dl dd span.info_pass p strong.s {
+			color: #ccc;
+		}
+		#reg dl dd span.error_pass {
+			background:url(images/reg_error.png) no-repeat;
+			top: 43px;
+			left: 295px;
+			/*display: none;*/
+		}
+		#reg dl dd span.succ_pass {
+			background:url(images/reg_succ.png) no-repeat 14px 8px ;
+			top: 43px;
+			left: 295px;
+			color: green;
+			/*display: none;*/
+		}
+	/*密码确认 提示/错误/通过*/
+		#reg dl dd span.info_notpass {
+			background: url(images/reg_info.png) no-repeat;
+			top: 83px;
+			left: 295px;
+		}
+		#reg dl dd span.error_notpass {
+			background:url(images/reg_error.png) no-repeat;
+			top: 83px;
+			left: 295px;
+		}
+		#reg dl dd span.succ_notpass {
+			background:url(images/reg_succ.png) no-repeat 14px 8px ;
+			top: 83px;
+			left: 295px;
+			color: green;
+		}
+	/*回答 提示/错误/通过*/
+		#reg dl dd span.info_ans {
+			background: url(images/reg_info.png) no-repeat;
+			top: 163px;
+			left: 295px;
+		}
+		#reg dl dd span.error_ans {
+			background:url(images/reg_error.png) no-repeat;
+			top: 163px;
+			left: 295px;
+		}
+		#reg dl dd span.succ_ans {
+			background:url(images/reg_succ.png) no-repeat 14px 8px ;
+			top: 163px;
+			left: 295px;
+			color: green;
+		}
+	/*电子邮件 提示/错误/通过 + 补全系统*/
+		#reg dl dd span.info_email {
+			background: url(images/reg_info.png) no-repeat;
+			top: 203px;
+			left: 295px;
+		}
+		#reg dl dd span.error_email {
+			background:url(images/reg_error.png) no-repeat;
+			top: 203px;
+			left: 295px;
+		}
+		#reg dl dd span.succ_email {
+			background:url(images/reg_succ.png) no-repeat 14px 8px ;
+			top: 203px;
+			left: 295px;
+			color: green;
+		}
+		#reg dl dd ul.all_email {
+			width: 180px;
+			height: 130px;
+			background: #fff;
+			border: 1px solid #ccc;
+			padding: 5px 10px;
+			position: absolute;
+			top: 233px;
+			left: 80px;
+			display: none;
+		}
+		#reg dl dd ul.all_email li {
+			width: 180px;
+			height: 25px;
+			line-height: 25px;
+			text-indent: 5px;
+			border-bottom: 1px dashed #BBC9DD;
+			cursor: pointer;
+		}
+	/*生日 错误*/
+		#reg dl dd span.error_birthday {
+			background:url(images/reg_error.png) no-repeat;
+			top: 243px;
+			left: 340px;
+		}
+	/*提问 错误*/
+		#reg dl dd span.error_ques {
+			background:url(images/reg_error.png) no-repeat;
+			top: 123px;
+			left: 295px;
+		}
+	/*备注 文字输入数量*/
+	#reg dl dd.ps {
+		padding:0 0 0 310px;
+	}
+	#reg dl dd .clear_ps {
+		color: blue;
+		cursor: pointer;
+	}
+
+/* #login 登录框 */
+	#login {
+		width: 350px;
+		height: 250px;
+		color: #666;
+		border: 1px solid #ccc;
+		position: absolute;
+		display: none;
+		z-index: 9999;
+		background-color: #fff;
+	}
+
+	#login h2{
+		height: 40px;
+		text-align: center;
+		font-size: 14px;
+		text-indent: 20px;
+		line-height: 40px;
+		letter-spacing: 3px;
+		background: url(images/login_header.png);
+		border-bottom: 1px solid #ccc;
+		cursor: move;
+	}
+
+	#login h2 .close {
+		float: right;
+		position: relative;
+		top: 12px;
+		left: -12px;
+		cursor: pointer;
+	}
+
+	#login input.text {
+		width: 200px;
+		height: 25px;
+		border: 1px solid #ccc;
+		background: #fff;
+		font-size: 14px;
+	}
+
+	#login .user {
+		padding: 10px 0 0 0;
+	}
+
+	#login .user,#login .pass {
+		font-size: 14px;
+		text-align: center;
+		margin: 15px;
+		
+	}
+
+	#login .button {
+		text-align: center;
+		padding: 5px 0 30px 0;
+	}
+
+	#login .submit {
+		width: 107px;
+		height: 30px;
+		background: url(images/login_button.png);
+		border: none;
+		cursor: pointer;
+	}
+	#login .other {
+		float: right;
+		margin: 0 10px 0 0;
+	}
+
+/*百度分享侧栏*/
+	#share {
+		/*box-sizing:border-box;*/
+		width: 210px;
+		height: 318px;
+		border: 1px solid #ccc;
+		position: fixed;
+		top: 15%;
+		left: -212px;
+		z-index: 997;
+		background: #fff;
+	}
+	#share h2 {
+		height: 30px;
+		line-height: 30px;
+		background: rgb(246,246,246);
+		font-size: 14px;
+		color: rgb(98,98,98);
+		text-indent: 10px;
+		overflow:hidden;
+	}
+	#share ul {
+		margin: 5px 0 0 0;
+		padding: 0 0 2px 5px;
+		height: 254px;
+		list-style: none outside none;
+		overflow:hidden;
+	}
+
+	#share ul li {
+		width: 96px;
+		height: 28px;
+		padding: 2px;
+		float: left;
+		overflow:hidden;
+	}
+	#share ul li a{
+		display: block;
+		width: 95px;
+		height: 26px;
+		line-height: 26px;
+		text-decoration: none;
+		text-indent: 30px;
+		background-image : url(images/share_bg.png);
+		background-repeat:no-repeat;
+		color: #666;
+		border-radius: 3px;
+		font-size: 12px;
+		overflow:hidden;
+	}
+	#share ul li a:hover {
+		background-color: #eee;
+		color: #333;
+	}
+	/*各个分享图标位置调整*/
+		#share ul li a.a {
+			background-position: 5px 5px;
+		}
+		#share ul li a.b {
+			background-position: 5px -25px;
+		}
+		#share ul li a.c {
+			background-position: 5px -55px;
+		}
+		#share ul li a.d {
+			background-position: 5px -85px;
+		}
+		#share ul li a.e {
+			background-position: 5px -115px;
+		}
+		#share ul li a.f {
+			background-position: 5px -145px;
+		}
+		#share ul li a.g {
+			background-position: 5px -175px;
+		}
+		#share ul li a.h {
+			background-position: 5px -205px;
+		}
+		#share ul li a.i {
+			background-position: 5px -235px;
+		}
+		#share ul li a.j {
+			background-position: 5px -265px;
+		}
+		#share ul li a.k {
+			background-position: 5px -295px;
+		}
+		#share ul li a.l {
+			background-position: 5px -325px;
+		}
+		#share ul li a.m {
+			background-position: 5px -355px;
+		}
+		#share ul li a.n {
+			background-position: 5px -385px;
+		}
+		#share ul li a.o {
+			background-position: 5px -415px;
+		}
+		#share ul li a.p {
+			background-position: 5px -445px;
+		}
+	#share .share_footer {
+		background-color: rgb(246,246,246);
+		width: 100%;
+		height: 26px;
+		line-height: 26px;
+		font-size: 14px;
+		position: absolute;
+		top: 292px;
+		left: 0;
+		font-size: 12px;
+		overflow:hidden;
+	}
+	#share .share_footer a {
+		display: inline-block;
+		width: 47px;
+		margin: 0 0 0 150px;
+		padding: 0 0 0 17px;
+		background: url(images/share_bg.png) no-repeat 0 -470px;
+	}
+	#share .share_footer a:hover {
+		color: rgb(70,124,212);
+	}
+	#share .flank {
+		width: 24px;
+		height: 88px;
+		position: absolute;
+		top:21%;
+		left:100%;
+	}
+	#share .flank a{
+	display: block;
+	width: 24px;
+	height: 88px;
+	margin: 0;
+	padding: 0;
+	background:url(images/share.png) no-repeat;
+	} 
+
+/*滑动导航*/
+	#nav {
+		width: 465px;
+		height: 52px;
+		background: url(images/nav_bg.png) no-repeat;
+		margin: 50px auto 0 auto;
+		cursor: pointer;
+		position: relative;
+	}
+	#nav ul{
+		margin:  0 0 0 20px;
+		position: absolute;
+	}
+	#nav ul.high {
+		z-index: 4;
+		background: rgba(0,0,0,0);
+	}
+	#nav ul.high li {
+		opacity: 0;
+	}
+	#nav ul.black {
+		left:0px;
+		z-index: 1;
+	}
+	#nav ul li{
+		width: 85px;
+		height: 52px;
+		float: left;
+		text-align: center;
+		line-height: 52px;
+		font-weight: bold;
+	}
+	#nav .nav_bg {
+		display: block;
+		width: 85px;
+		height: 52px;
+		background: url(images/nav_over.png) no-repeat center;
+		position: absolute;
+		left: 20px;
+		z-index: 2;
+		overflow: hidden;
+	}
+	#nav .nav_bg .white {
+		width: 425px;
+		color: white;
+		margin: 0;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+
+/*主要内容*/
+	/*主要内容————大框架*/
+		#main {
+			width: 900px;
+			/*background: rgb(246,246,246);*/
+			margin: 50px auto;
+		}
+	/*主要内容————左侧菜单*/
+		#sidebar {
+			width: 250px;
+			height: 500px;
+			float: left;
+		}
+		#sidebar h2 {
+			width: 248px;
+			height: 28px;
+			line-height: 30px;
+			font-size: 14px;
+			text-indent: 10px;
+			border: 1px solid #ccc;
+			background-image: url(images/side_h.png);
+			background-repeat: repeat-x;
+			cursor: pointer;
+			border-top-left-radius: 5px;
+			border-top-right-radius: 5px;
+		}
+		#sidebar h2:hover {
+			border: 1px solid #aaa;
+		}
+		#sidebar ul {
+			height: 152px;
+			opacity:1;
+			border: 1px solid #ccc;
+			border-top: none;
+			margin: 0 0 10px 0;
+			overflow: hidden;
+			border-bottom-left-radius: 5px;
+			border-bottom-right-radius: 5px;
+		}
+		#sidebar ul li {
+			height: 30px;
+			line-height: 30px;
+			text-indent: 30px;
+			background: url(images/arrow4.gif) no-repeat 12px 45%;
+			overflow: hidden;
+		}
+		#sidebar ul li a{
+			color: #333;
+		}
+	/*主要内容————右侧内容*/
+		#index {
+			width: 50%;
+			height:50%;
+			float: left;
+		}
+	/*主要内容————横幅广告*/
+		#banner {
+			width: 900px;
+			height:150px;
+			float:left;
+			margin: 10px 0;
+			overflow: hidden;
+			position: relative;
+		}
+		#banner img {
+			display: block;
+			position: absolute;
+			top:0;
+			left:0;
+			z-index: 1;
+		}
+		#banner span {/*半透明挡板*/
+			display: block;
+			width: 900px;
+			height: 30px;
+			background: rgba(0,0,0,0.4);
+			/*color: rgba(0,0,0,0);*/
+			position: absolute;
+			top: 120px;
+			z-index:3;
+		}
+		#banner strong {/*图片说明*/
+			height: 30px;
+			line-height: 30px;
+			position: absolute;
+			top: 120px;
+			text-indent: 10px;
+			color: #fff;
+			z-index:4;
+			opacity: 0.7;
+		}
+		#banner ul {/*小圆点集合*/
+			display:block;
+			width: 900px;
+			text-align: center;
+			height: 30px;
+			position: absolute;
+			top:120px;
+			left:0;
+			z-index:5;
+		}
+		#banner ul li {/*小圆点*/
+			display: inline-block;
+			width: 18px;
+			height: 18px;
+			border-radius: 10px;
+			background: #333;/*设置圆圈颜色*/
+			margin: 6px 10px;
+			cursor: pointer;
+			opacity: 0.4;
+		}
+/*主要内容————照片*/
+	#photo {
+		width: 900px;
+		float: left;
+	}
+	#photo dl {
+		width: 196px;
+		height: 350px;
+		float:left;
+		margin: 0 15px 10px 14px;
+	}
+	#photo dl:hover{
+		box-shadow:0px 0px 14px #ccc;
+	}
+	#photo dl dt {
+		width: 180px;
+		height: 320px;
+		margin: 8px 8px 1px 8px;
+	}
+	#photo dl dt img {
+		max-width: 180px;
+		max-height: 320px;
+		cursor: pointer;
+	}
+	#photo dl dd {
+		width: 196px;
+		height: 25px;
+		text-align: center;
+		font-size: 14px;
+		cursor: default;
+	}
+/*主要内容————照片————大图片*/
+	#photo_big {
+		width: 620px;
+		height: 511px;
+		color: #666;
+		border: 1px solid #ccc;
+		position: absolute;
+		display: none;
+		z-index: 9999;
+		background-color: #fff;
+	}
+	#photo_big h2{
+		height: 40px;
+		text-align: center;
+		font-size: 14px;
+		text-indent: 20px;
+		line-height: 40px;
+		letter-spacing: 3px;
+		background: url(images/login_header.png) repeat-x;
+		border-bottom: 1px solid #ccc;
+		cursor: move;
+	}
+	#photo_big h2 .close {
+		float: right;
+		position: relative;
+		top: 12px;
+		left: -12px;
+		cursor: pointer;
+	}
+	#photo_big .big{
+		width: 620px;
+		height: 460px;
+		padding: 10px 0 0 0;
+		background-color: rgb(38,38,38);
+		text-align:center;
+	}
+	#photo_big .big img{
+		max-width: 600px;
+		max-height: 450px;
+		position: relative;
+		top: 80px;
+	}
+	#photo_big .bigleft,#photo_big .bigright,#photo_big .bigcenter {
+		width: 200px;
+		height: 450px;
+		background-color: rgba(0,0,0,0);
+		position: absolute;
+	}
+	#photo_big .bigleft {
+		top:51px;
+		left:10px;
+	}	
+	#photo_big .bigright{
+		top:51px;
+		right:10px;
+	}
+	#photo_big .bigcenter{
+		top:51px;
+		left:210px;
+	}
+	#photo_big .bigleft .left,#photo_big .bigright .right{
+		display:block;
+		width: 100px;
+		height: 100px;
+		font-size: 100px;
+		text-align: center;
+		background-color: #333;
+		opacity: 0;
+		cursor: pointer;
+		line-height: 85px;
+		border-radius: 50px;
+	}
+	#photo_big .bigleft .left{
+		margin: 140px 0 0 10px;
+	}
+	#photo_big .bigright .right{
+
+		margin: 140px 0 0 90px;
+	}
+	#photo_big .center {
+		width:120px;
+		height: 25px;
+		background-color: #000;
+		cursor: default;
+		border-radius: 12px;
+		text-align: center;
+		font-size: 16px;
+		padding: 2px 0 0 0;
+		opacity: 0;
+		position: absolute;
+		bottom:20px;
+		left: 40px;
+	}

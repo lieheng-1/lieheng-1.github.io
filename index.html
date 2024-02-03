@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="utf-8">
+	<title>小恒博客</title>
+	<link rel="stylesheet" type="text/css" href="index.css">
+	<script src="./js/base.js"></script>
+	<script src="./js/base_drag.js"></script>
+	<script src="./js/tool.js"></script>
+	<script src="./js/index.js"></script>
+</head>
+<body>
+	<!-- 顶部导航 -->
+		<div id="header">  
+			<div class="logo"><img src="images/恒10.jpg" alt="路径异常~"></div>
+			<div class="member">
+				个人中心
+				<ul class="member_ul">
+					<li><a href="###">设置</a></li>
+					<li><a href="###">换肤</a></li>
+					<li><a href="https://yunduanjianzhan.cn/index.php/sample-page/">帮助</a></li>
+					<li><a href="https://yunduanjianzhan.cn">官网</a></li>
+				</ul>
+			</div>
+			<div class="reg">注册</div>
+			<div class="login">登录</div>
+		</div>
+
+	<!-- 注册框 -->
+		<div id="reg">
+			<form name="reg">
+				<h2 id="h2">会员注册<img src="images/close.png" alt="路径异常" class="close"></h2>
+				<dl>
+					<dd>用&ensp;户&ensp;名：<input type="text" name="user" class="text">
+						<span class="info info_user">请输入用户名，2~20 位，由字母、数字和下划线组成！</span> 
+						<span class="error error_user">输入不合法，请重新输入！</span>
+						<span class="succ succ_user">可用</span>
+					</dd>
+					<dd>密&emsp;&emsp;码：<input type="password" name="pass" class="text">
+						<span class="info info_pass">
+							<p>
+								安全级别：
+								<strong class="s1 s">■</strong>
+								<strong class="s2 s">■</strong>
+								<strong class="s3 s">■</strong>
+								<strong class="s4 s" style="font-weight: normal"></strong>
+							</p>
+							<p><strong class="q1" style="font-weight:normal">○</strong>&ensp;6-20个字符</p>
+							<p><strong class="q2" style="font-weight:normal">○</strong>&ensp;只能包含大小写字母、数字和非空格字符</p>
+							<p><strong class="q3" style="font-weight:normal">○</strong>&ensp;大、小写字母、数字、非空字符，2种以上</p>
+						</span>
+						<span class="error error_pass">输入不合法，请重新输入！</span>
+						<span class="succ succ_pass">可用</span>
+					</dd>
+					<dd>密码确认：<input type="password" name="notpass" class="text">
+						<span class="info info_notpass">请再一次输入密码！</span> 
+						<span class="error error_notpass">密码确认有误，请重新输入！</span>
+						<span class="succ succ_notpass">一致</span>
+					</dd>
+					<dd>
+						提&emsp;&emsp;问：<select name="ques">
+											<option value="0">-&ensp;-&ensp;-&ensp;-&ensp;-请选择-&ensp;-&ensp;-&ensp;-&ensp;-</option>
+											<option value="1">--您最喜欢的菜是？</option>
+											<option value="2">--您的狗狗的名字是？</option>
+											<option value="3">--您的出生地是？</option>
+											<option value="4">--您最喜欢的明星是？</option>
+										</select>
+						<span class="error error_ques">尚未选择问题，请选择！</span>
+					</dd>
+					<dd>回&emsp;&emsp;答：<input type="text" name="ans" class="text">
+						<span class="info info_ans">请输入回答，2~32 位！</span> 
+						<span class="error error_ans">回答不合法，请重新输入！</span>
+						<span class="succ succ_ans">可用</span>
+					</dd>
+					<dd>电子邮件：<input type="text" name="email" class="text" autocomplete="off">
+						<span class="info info_email">请输入电子邮件！</span> 
+						<span class="error error_email">邮件不合法，请重新输入！</span>
+						<span class="succ succ_email">可用</span>
+						<ul class="all_email">
+							<li><span></span>@qq.com</li>
+							<li><span></span>@163.com</li>
+							<li><span></span>@sohu.com</li>
+							<li><span></span>@sina.com.cn</li>
+							<li><span></span>@gmail.com</li>
+						</ul>
+					</dd>
+					<dd class="birthday">
+						生&emsp;&emsp;日：<select name="year">
+											<option value="0">- 年 -</option>
+										</select>&ensp;&ensp;
+											<select name="month">
+											<option value="0">- 月 -</option>
+										</select>&ensp;&ensp;
+											<select name="day">
+											<option value="0">- 日 -</option>
+										</select>&ensp;
+						<span class="error error_birthday">尚未全部选择，请补充！</span>
+					</dd>
+					<dd style="height:105px"><span style="vertical-align:85px">备&emsp;&emsp;注：</span><textarea name="ps" placeholder="这个人很懒，什么都没留下。"></textarea></dd>
+					<dd class="ps" style="display:block">还可以输入<strong class="num">200</strong>字</dd>
+					<dd class="ps" style="display:none">已超过<strong class="num" style="color:red">200</strong>字，<span class="clear_ps">清尾</span></dd>
+					<dd><input type="button" class="submit" name="sub"></dd>
+				</dl>
+			</form>
+		</div>
+
+	<!-- 登录框 -->
+		<div id="login">
+			<h2 id="h2">网站登录<img src="images/close.png" alt="路径异常" class="close"></h2>
+			<div class="user">账 号：<input type="text" name="user" class="text"></div>
+			<div class="pass">密 码：<input type="password" name="pass" class="text"></div>
+			<div class="button"><input type="button" class="submit" value=""></div>
+			<div class="other"><a href="###">注册新用户</a> | <a href="###">忘记密码？</a></div>
+		</div>
+
+	<!-- 滑动导航 -->
+		<div id="nav">
+			<ul class="high">
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+			<ul class="black">
+				<li>首页</li>
+				<li>文章列表</li>
+				<li>精彩相册</li>
+				<li>进阶成长</li>
+				<li>关于我</li>
+			</ul>
+
+			<div class="nav_bg">
+				<ul class="white">
+					<li>首页</li>
+					<li>博文列表</li>
+					<li>精彩相册</li>
+					<li>进阶成长</li>
+					<li>关于我</li>
+				</ul>
+			</div>
+		</div>
+
+	<!-- 页面主要内容 -->
+		<div id="main">
+			<div id="sidebar">
+				<h2>web</h2>
+				<ul>
+					<li><a href="https://yunduanjianzhan.cn/index.php/2024/02/02/js原生实现web游戏贪吃蛇/liheng/ "></a>JS原生实现web游戏贪吃蛇</li>
+					<li><a href="https://yunduanjianzhan.cn/index.php/2024/02/01/htmlcssjavascript制作有代码感的动态简历/liheng/">HTML+CSS+JavaScript制作有代码感的动态简历</a></li>
+					<li><a href="https://yunduanjianzhan.cn/index.php/2024/02/01/js原生实现web游戏扫雷/liheng/ ">JS原生实现web游戏扫雷</a></li>
+					<li><a href="https://yunduanjianzhan.cn/index.php/2024/01/13/48/liheng/">宝塔搭建wordpress教程</a></li>
+					<li><a href="https://yunduanjianzhan.cn/index.php/2024/01/17/部署个人开源网盘的教程/liheng/">部署个人开源网盘的教程</a></li>
+				</ul>
+				<h2>逻辑</h2>
+				<ul>
+					<li><a href=" https://yunduanjianzhan.cn/index.php/2024/02/02/node-js和npm/liheng/">Node.js和npm</a></li>
+					<li><a href="https://yunduanjianzhan.cn/index.php/2024/01/31/markdown语言/liheng/">Markdown语言</a></li>
+					<li><a href="https://yunduanjianzhan.cn/index.php/2024/01/28/将vercel作为容器搭建chatgptweb/liheng/">将vercel作为容器搭建chatGPTweb</a></li>
+					<li><a href="https://yunduanjianzhan.cn/index.php/2024/01/26/docker是什么，为什么要用docker/liheng/">Docker是什么，为什么要用docker</a></li>
+					<li><a href="https://yunduanjianzhan.cn/index.php/2024/01/26/error-nothing-to-do/liheng/">error: nothing to do</a></li>
+				</ul>
+				<h2>安全</h2>
+				<ul>
+					<li><a href="https://yunduanjianzhan.cn/index.php/2024/02/03/python借助scapy依赖实现多线程syn泛洪攻击/liheng/">python借助scapy依赖实现多线程SYN泛洪攻击</a></li>
+					<li><a href="https://yunduanjianzhan.cn/index.php/2024/01/26/将python项目部署到云服务器上/liheng/">将python项目部署到云服务器上</a></li>
+					<li><a href=" https://yunduanjianzhan.cn/index.php/2024/01/23/安全模式/liheng/ ">安全模式</a></li>
+					<li><a href="https://yunduanjianzhan.cn/index.php/2024/01/21/删除360卸载后的扩展名为dll文件的方法/liheng/">删除360卸载后的扩展名为dll文件的方法</a></li>
+					<li><a href="https://yunduanjianzhan.cn/index.php/2024/01/15/提供一个正向代理访问的方法（站长推荐）/liheng/">提供一个正向代理访问的方法（站长推荐）</a></li>
+				</ul>
+			</div>
+			<div id="index"> 
+				<ul dir="auto">
+					<li ><b><big>👋 嗨，我是@lieheng</big></b></li>
+					<li ><b><big>👀 我对 web 感兴趣</big></b></li>
+					<li ><b><big>🌱 我目前正在学习许多不同的技术</big></b></li>
+					<li ><b><big>💞️ 我正在寻求合作</big></b></li>
+					<li ><b><big>📫 如何联系我？</a></big></b></li>
+					<li ><b><big>😄 weixin：b13551458597或e-mail：<a href="mailto:liheng2137@qq.com" _istranslated="1">liheng2137@qq.com</big></b></li>
+					<li ><b><big>😄 代词：也许它不存在</big></b></li>
+					<li ><img src="images/weixin.png" alt="微信" style="width:300px;height:100px">"</li>
+					<li ><img src="images/恒11.jpg" alt="微信" style="width:300px;height:300px">"</li>
+			</div>
+			<div id="banner">
+				<img src="images/banner1.png" alt="轮播器第一张图">
+				<img src="images/banner2.png" alt="轮播器第二张图">
+				<img src="images/banner3.png" alt="轮播器第三张图">
+				<ul>
+					<li class="banner1"></li>
+					<li class="banner2"></li>
+					<li class="banner3"></li>
+				</ul>
+				<span></span>
+				<strong>图片说明</strong>
+			</div>
+			<!-- <div id="zhnwei" style="text-align:center;width:900px;height:3700px;background:#6fc;float:left;font-size:700px;cursor:default">占位专用</div> -->
+			<div id="photo">
+				<dl>
+					<dt><img xsrc="images/p1.jpg" bigsrc="images/p1big.jpg" src="images/photo_wait.jpg" alt=""></dt>
+					<dd>红日</dd>
+				</dl>
+				<dl>
+					<dt><img xsrc="images/p2.jpg" bigsrc="images/p2big.jpg" src="images/photo_wait.jpg" alt=""></dt>
+					<dd>桃花</dd>
+				</dl>
+				<dl>
+					<dt><img xsrc="images/p3.jpg" bigsrc="images/p3big.jpg" src="images/photo_wait.jpg" alt=""></dt>
+					<dd>爱情</dd>
+				</dl>
+				<dl>
+					<dt><img xsrc="images/p4.jpg" bigsrc="images/p4big.jpg" src="images/photo_wait.jpg" alt=""></dt>
+					<dd>皮卡丘</dd>
+				</dl>
+				<dl>
+					<dt><img xsrc="images/p5.jpg" bigsrc="images/p5big.jpg" src="images/photo_wait.jpg" alt=""></dt>
+					<dd>延迟加载图片</dd>
+				</dl>
+				<dl>
+					<dt><img xsrc="images/p6.jpg" bigsrc="images/p6big.jpg" src="images/photo_wait.jpg" alt=""></dt>
+					<dd>延迟加载图片</dd>
+				</dl>
+				<dl>
+					<dt><img xsrc="images/p7.jpg" bigsrc="images/p7big.jpg" src="images/photo_wait.jpg" alt=""></dt>
+					<dd>延迟加载图片</dd>
+				</dl>
+				<dl>
+					<dt><img xsrc="images/p8.jpg" bigsrc="images/p8big.jpg" src="images/photo_wait.jpg" alt=""></dt>
+					<dd>延迟加载图片</dd>
+				</dl>
+				<dl>
+					<dt><img xsrc="images/p9.jpg" bigsrc="images/p9big.jpg" src="images/photo_wait.jpg" alt=""></dt>
+					<dd>延迟加载图片</dd>
+				</dl>
+				<dl>
+					<dt><img xsrc="images/p10.jpg" bigsrc="images/p10big.jpg" src="images/photo_wait.jpg" alt=""></dt>
+					<dd>延迟加载图片</dd>
+				</dl>
+				<dl>
+					<dt><img xsrc="images/p11.jpg" bigsrc="images/p11big.jpg" src="images/photo_wait.jpg" alt=""></dt>
+					<dd>延迟加载图片</dd>
+				</dl>
+				<dl>
+					<dt><img xsrc="images/p12.jpg" bigsrc="images/p12big.jpg" src="images/photo_wait.jpg" alt=""></dt>
+					<dd>延迟加载图片</dd>
+				</dl>
+			</div>
+		</div>
+
+	<!-- 百度分享侧栏 -->
+		<div id="share">
+			<h2>分享到</h2>
+			<ul>
+					<li><a href="###" class="a">一键分享</a></li>
+					<li><a href="###" class="b">新浪微博</a></li>
+					<li><a href="###" class="c">人人网</a></li>
+					<li><a href="###" class="d">百度相册</a></li>
+					<li><a href="###" class="e">腾讯朋友</a></li>
+					<li><a href="###" class="f">豆瓣网</a></li>
+					<li><a href="###" class="g">百度新首页</a></li>
+					<li><a href="###" class="h">和讯微博</a></li>
+					<li><a href="###" class="i">QQ 空间</a></li>
+					<li><a href="###" class="j">百度搜藏</a></li>
+					<li><a href="###" class="k">腾讯微博</a></li>
+					<li><a href="###" class="l">开心网</a></li>
+					<li><a href="###" class="m">百度贴吧</a></li>
+					<li><a href="###" class="n">搜狐微博</a></li>
+					<li><a href="###" class="o">QQ 好友</a></li>
+					<li><a href="###" class="p">更多...</a></li>
+			</ul>
+			<div class="share_footer">
+				<a href="###">更多...</a>
+			</div>
+			<div class="flank">
+				<a href="###"></a>
+			</div>
+		</div>
+
+	<!-- 大图展示————预加载 -->
+		<div id="photo_big">
+			<h2 id="h2">图片展示<img src="images/恒10.jpg" alt="关闭" class="close"></h2>
+			<div class="big"><img src="images/big_loading2.gif" alt="大图展示"></div>
+			<div class="bigleft">
+				<span class="left">&#x3C;</span>
+			</div>
+			<div class="bigright">
+				<span class="right">&#x3E;</span>
+			</div>
+			<div class="bigcenter">
+				<span class="center">12/12</span>
+			</div>
+		</div>
+
+	<!-- 锁屏遮罩 -->
+		<div id="screen"></div>
+
+	<!-- 测试 -->
+	<div id= "test" style="clear:both;"></div>
+
+	<p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p>
+	<p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p>
+	<p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p>
+</body>
+</html>
