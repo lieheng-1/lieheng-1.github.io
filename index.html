@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>贪吃蛇</title>
+    <link href="css/tetris.css" type="text/css" rel="stylesheet">
+    <meta name="keywords" content="贪食蛇，原生javascript，javascript实现贪吃蛇">
+    <meta name="description" content="原生javascript编写贪吃蛇">
+    <link rel="icon" href="img/Snake.png">
+</head>
+<body>
+<div class="content">
+    <table id="chessboard"></table>
+    <div class="right">
+        <div class="rules">
+            <div class="title">
+                <span>用户名：</span>
+                <span class="edit">编辑</span>
+            </div>
+            <div class="score name">0</div>
+        </div>
+        <div class="rules">
+            <div class="title">得分：</div>
+            <div class="score">0</div>
+        </div>
+        <div class="rules">
+            <div class="title">
+                <span>用时：</span>
+                <span class="unit">(秒)</span>
+            </div>
+            <div class="score time">0</div>
+        </div>
+        <div class="rules">
+            <div class="title">游戏规则：</div>
+            <p>按任意方向键，开始游戏，通过吃蛋获取得分。</p>
+        </div>
+        <div class="rules">
+            <div class="title">最高记录：</div>
+            <div class="ranking">
+                <p>
+                    <span class="user-name">比克大魔王</span>：
+                    <span class="score-num">230分</span>
+                </p>
+                <p>
+                    <span class="user-name">张可</span>：
+                    <span class="score-num">120分</span>
+                </p>
+                <p>
+                    <span class="user-name">王耀辉</span>：
+                    <span class="score-num">100分</span>
+                </p>
+                <p>
+                    <span class="user-name">我是第一</span>：
+                    <span class="score-num">100分</span>
+                </p>
+                <p>
+                    <span class="user-name">多啦A梦</span>：
+                    <span class="score-num">120分</span>
+                </p>
+                <p>
+                    <span class="user-name">王吉祥</span>：
+                    <span class="score-num">120分</span>
+                </p>
+                <p>
+                    <span class="user-name">孙中原</span>：
+                    <span class="score-num">120分</span>
+                </p>
+                <p>
+                    <span class="user-name">尤雨溪</span>：
+                    <span class="score-num">120分</span>
+                </p>
+                <p>
+                    <span class="user-name">张译</span>：
+                    <span class="score-num">120分</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--弹窗-->
+<div class="wrapper">
+    <div class="dialog-box">
+        <div class="box-header">
+            编辑用户名
+        </div>
+        <div class="head-button">
+            <img src="img/cancel.png">
+        </div>
+        <div class="box-content">
+            大侠可留下你的昵称，冲刺最高记录
+            <div class="sq-input">
+                <input>
+            </div>
+        </div>
+        <div class="box-btns">
+            <button class="leave-Message">我要吐槽</button>
+            <button class="skip">跳过</button>
+            <button class="conform">确认</button>
+        </div>
+    </div>
+</div>
+
+<script src="js/snake.js"></script>
+<script src="js/messageBox.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>
